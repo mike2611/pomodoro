@@ -2,7 +2,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
 const Footer = () => (
-<footer class="text-center text-lg-start bg-dark text-muted">
+<footer class="text-center text-lg-start bg-dark text-muted footer-container">
   <section
     class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
   >
