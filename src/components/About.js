@@ -1,14 +1,14 @@
 const About = () => ( 
-  <div class="about-container overflow-auto">
-    <h1 class="text-muted mb-5 mt-1 ms-3"> The Pomodoro® Core Process consists of 6 steps: </h1>
+  <div class="section-container overflow-auto">
+    <h1 class="text-muted mb-5 mt-1 ms-3"> The <span class="text-danger">Pomodoro®</span> Core Process consists of 6 steps: </h1>
 
     <ol>
-      <li class="text-white mb-5 ms-3 h3">CHOOSE A TASK YOU'D LIKE TO GET DONE</li>
-      <li class="text-white mb-5 ms-3 h3">SET THE POMODORO® FOR 25 MINUTES</li>
-      <li class="text-white mb-5 ms-3 h3">WORK ON THE TASK UNTIL THE POMOTIMER RINGS</li>
-      <li class="text-white mb-5 ms-3 h3">WHEN THE POMOTIMER RINGS, PUT A CHECKMARK ON A PAPER</li>
-      <li class="text-white mb-5 ms-3 h3">TAKE A SHORT BREAK</li>
-      <li class="text-white mb-5 ms-3 h3">EVERY 4 POMODOROS, TAKE A LONGER BREAK</li> 
+      <li class="text-white mb-5 ms-3 h3">Choose a task you'd like to get done</li>
+      <li class="text-white mb-5 ms-3 h3">Set the <span class="text-danger">Pomodoro®</span> for 25 minutes</li>
+      <li class="text-white mb-5 ms-3 h3">Work on the task until the pomotimer rings</li>
+      <li class="text-white mb-5 ms-3 h3">When the pomotimer rings, put a checkmark on a paper</li>
+      <li class="text-white mb-5 ms-3 h3">Take a short break</li>
+      <li class="text-white mb-5 ms-3 h3">Every 4 <span class="text-danger">Pomodoro®</span>, take a loner break</li> 
     </ol>
   </div>
 );

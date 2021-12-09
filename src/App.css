@@ -18,12 +18,33 @@ body, html, .App {
   font-size: 1.2rem;
 }
 
-.about-container {
+.section-container {
   height: 80vh;
+}
+
+.clock {
+  height: 20vh;
+  color: white;
+  font-size: 22vh;
+  font-family: sans-serif;
+  line-height: 20.4vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.clock > div {
+  display: flex;
+}
+
+.tick {
+  line-height: 17vh;
+}
+
+.btns-clock {
+  width: 12rem;
 }
 
 .footer-container {
   border-top: 1px solid white;
 }
-
-
