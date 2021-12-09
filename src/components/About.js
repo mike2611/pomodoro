@@ -8,7 +8,7 @@ const About = () => (
       <li class="text-white mb-5 ms-3 h3">Work on the task until the pomotimer rings</li>
       <li class="text-white mb-5 ms-3 h3">When the pomotimer rings, put a checkmark on a paper</li>
       <li class="text-white mb-5 ms-3 h3">Take a short break</li>
-      <li class="text-white mb-5 ms-3 h3">Every 4 <span class="text-danger">Pomodoro®</span>, take a loner break</li> 
+      <li class="text-white mb-5 ms-3 h3">Every 4 <span class="text-danger">Pomodoro®</span>, take a longer break</li> 
     </ol>
   </div>
 );
