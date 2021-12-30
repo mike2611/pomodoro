@@ -1,6 +1,7 @@
 const Timer = () => ( 
   <div class="section-container d-flex justify-content-center align-items-center">
     <div class="clock-container">
+      <h2 class="text-white text-center mb-3">Next Short Break </h2>
       <div class="clock">
         <div class="minutes">
           <div>
