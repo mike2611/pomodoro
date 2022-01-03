@@ -11,8 +11,7 @@ const Timer = () => {
 
   useEffect(() => {
     const updateCounter = () => {
-      console.log(start)
-      if( timeLeft.seconds === 0) {
+      if( timeLeft.seconds === 0 ) {
         return (
           {minutes: timeLeft.minutes - 1, seconds: 59}
         );
@@ -23,12 +22,26 @@ const Timer = () => {
       );
     }
 
+    if(start) {
     setTimeout(() => {
-      if(start) {
-        setTimeLeft(updateCounter);
-      }
+      setTimeLeft(updateCounter);
     }, 1000)
+    } else {
+      return timeLeft;
+    }
   }, [start, timeLeft])
+
+
+  const resetTimer = (() => {
+    setStart(false); 
+    setTimeLeft
+    (
+      {
+        minutes: 25,
+        seconds: 0,
+      }
+    );
+  });
 
   
   return(
@@ -49,8 +62,9 @@ const Timer = () => {
         </div>
       </div>
       <div className="d-flex justify-content-center mt-5">
-        <button className="mx-2 btn btn-warning btns-clock py-3">RESET</button>
-        <button className="mx-2 btn btn-primary btns-clock py-3" onClick={() => setStart((prevState) => !prevState)}>START</button>
+        <button className="mx-2 btn btn-warning btns-clock py-3" onClick={resetTimer}>RESET</button>
+        <button className={start ? 'mx-2 btn btn-danger btns-clock py-3' : 'mx-2 btn btn-primary btns-clock py-3'} 
+        onClick={() => setStart((prevState) => !prevState)}>{start ? 'STOP' : 'START'}</button>
       </div>
     </div>
   </div>
