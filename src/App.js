@@ -7,7 +7,7 @@ import { Route } from 'react-router';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import About from './components/About';
-import Timer from './components/Timer';
+import PomoTimer from './components/PomoTimer';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          <Route exact path="/" element={<Timer />} />
+          <Route exact path="/" element={<PomoTimer />} />
           <Route exact path="/about" element={<About />} />
         </Routes>
         <Footer />

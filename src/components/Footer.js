@@ -11,10 +11,10 @@ const Footer = () => (
     </div>
     <div>
       <a href="https://www.linkedin.com/in/miguel-puentes-mata/" className="me-4 text-reset">
-        <FaLinkedin  className="me-2 h3"/> Miguel Puentes Mata
+        <FaLinkedin  className="me-2 h3"/> Miguel Puentes
       </a>
       <a href="https://github.com/mike2611" className="me-4 text-reset">
-        <FaGithub className="me-2 h3"/> mike2611
+        <FaGithub className="me-2 h3"/>  <span className="d-none d-md-inline">mike2611</span>
       </a>
     </div>
   </section>
