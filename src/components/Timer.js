@@ -7,9 +7,12 @@ const Timer = () => {
       seconds: 0,
     });
 
+  const [start, setStart] = useState(false);
+
   useEffect(() => {
     const updateCounter = () => {
-      if( timeLeft.seconds === 0 ) {
+      console.log(start)
+      if( timeLeft.seconds === 0) {
         return (
           {minutes: timeLeft.minutes - 1, seconds: 59}
         );
@@ -21,31 +24,33 @@ const Timer = () => {
     }
 
     setTimeout(() => {
-      setTimeLeft(updateCounter);
+      if(start) {
+        setTimeLeft(updateCounter);
+      }
     }, 1000)
-  }, [timeLeft])
+  }, [start, timeLeft])
 
   
   return(
-  <div class="section-container d-flex justify-content-center align-items-center">
-    <div class="clock-container">
-      <h2 class="text-white text-center mb-3">Next Short Break </h2>
-      <div class="clock">
-        <div class="minutes">
+  <div className="section-container d-flex justify-content-center align-items-center">
+    <div className="clock-container">
+      <h2 className="text-white text-center mb-3">Next Short Break </h2>
+      <div className="clock">
+        <div className="minutes">
           <div>
             <div>{timeLeft.minutes}</div>
           </div>
         </div>
-        <div class="tick">:</div>
-        <div class="seconds">
+        <div className="tick">:</div>
+        <div className="seconds">
           <div>
             <div>{timeLeft.seconds < 10 ? `0${timeLeft.seconds}` : timeLeft.seconds}</div>
           </div>
         </div>
       </div>
-      <div class="d-flex justify-content-center mt-5">
-        <button class="mx-2 btn btn-warning btns-clock py-3">RESET</button>
-        <button class="mx-2 btn btn-primary btns-clock py-3">START</button>
+      <div className="d-flex justify-content-center mt-5">
+        <button className="mx-2 btn btn-warning btns-clock py-3">RESET</button>
+        <button className="mx-2 btn btn-primary btns-clock py-3" onClick={() => setStart((prevState) => !prevState)}>START</button>
       </div>
     </div>
   </div>
