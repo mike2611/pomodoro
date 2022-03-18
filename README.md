@@ -28,8 +28,6 @@ To get a local copy up and running follow these simple example steps.
  
  Run `npm run start`.
 
- Your computer will open the main page where you can add your name and score
-
 
 ## Authors
 
