@@ -56,6 +56,10 @@ body, html, .App {
   border-top: 1px solid white;
 }
 
+.timer-text {
+  font-size: 8rem;
+}
+
 @media screen and (max-width: 320px) {
   .btns-clock {
     width: 7rem;
