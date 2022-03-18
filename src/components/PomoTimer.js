@@ -1,63 +1,51 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const PomoTimer = () => {
-  const Ref = useRef(null);
-  const [timer, setTimer] = useState('00:00:00');
+  const [minutes, setMinutes] = useState(25);
+  const [seconds, setSeconds] = useState(0);
+  const [startTimer, setStartTimer] = useState(false);
+  const [breakTime, setBreakTime] = useState(false);
 
+  useEffect(() => {
+    if (startTimer) {
+      let interval = setInterval(() => {
+        clearInterval(interval);
+        if (seconds === 0) {
+          if (minutes > 0) {
+            setSeconds(59);
+            setMinutes((preState) => (preState - 1));
+          } else {
+            let min = breakTime ? 24 : 4;
+            let sec = 59;
 
-  const getTimeRemaining = (e) => {
-    const total = Date.parse(e) - Date.parse(new Date());
-    const seconds = Math.floor((total / 1000) % 60);
-    const minutes = Math.floor((total / 1000 / 60) % 60);
-    const hours = Math.floor((total / 1000 * 60 * 60) % 24);
-    return {
-      total, hours, minutes, seconds
-    };
-  }
-
-  const startTimer = (e) => {
-    let { total, hours, minutes, seconds } = getTimeRemaining(e);
-    if (total >= 0) {
-      setTimer(
-        (hours > 9 ? hours : '0' + hours) + ':' +
-        (minutes > 9 ? minutes : '0' + minutes) + ':'
-        + (seconds > 9 ? seconds : '0' + seconds)
-      )
+            setSeconds(sec);
+            setMinutes(min);
+            setBreakTime((prevState) => (!prevState));
+          }
+        } else {
+          setSeconds((preState) => (preState - 1));
+        }
+      }, 1000);
     }
-  }
+  }, [seconds, startTimer]);
 
-  const clearTimer = (e) => {
-    setTimer('00:00:10');
 
-    if (Ref.current) clearInterval(Ref.current);
-    const id = setInterval(() => {
-      startTimer(e);
-    }, 1000)
-    Ref.current = id;
-  }
 
-  const getDeadTime = () => {
-    let deadline = new Date();
-
-    deadline.setSeconds(deadline.getSeconds() + 10);
-    return deadline;
-  }
-
-  const onClickReset = () => {
-    clearTimer(getDeadTime());
-  }
+  const timerMinutes = minutes < 10 ? `0${minutes}` : minutes;
+  const timerSeconds = seconds < 10 ? `0${seconds}` : seconds;
 
 
   return (
     <div className="section-container d-flex justify-content-center align-items-center">
       <div className="clock-container">
-        <h2 className="text-white text-center mb-3">Next Short Break </h2>
+        {breakTime && <h2 className="text-white text-center mb-3"> Break Time!</h2>}
+        {!breakTime && <h2 className="text-white text-center mb-3"> Time to Work!</h2>}
         <div className="clock d-flex justify-content-center">
-          <h2>{timer}</h2>
+          <h2>{timerMinutes}:{timerSeconds}</h2>
         </div>
         <div className="d-flex justify-content-center mt-5">
-          <button className="mx-2 btn btn-warning btns-clock py-3" onClick={onClickReset}>RESET</button>
-          <button className="mx-2 btn btn-primary btns-clock py-3" onClick={onClickReset}>START</button>
+          <button className="mx-2 btn btn-warning btns-clock py-3">RESET</button>
+          <button className={startTimer ? 'mx-2 btn btn-danger btns-clock py-3' : 'mx-2 btn btn-primary btns-clock py-3'} onClick={() => (setStartTimer((prevState) => !prevState))}>{startTimer ? 'STOP' : 'START'}</button>
         </div>
       </div>
     </div>
