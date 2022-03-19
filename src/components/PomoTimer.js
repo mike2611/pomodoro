@@ -30,6 +30,8 @@ const PomoTimer = () => {
           setSeconds((preState) => (preState - 1));
         }
       }, 1000);
+
+      return () => clearTimeout(interval);
     }
   }, [seconds, startTimer]);
 
