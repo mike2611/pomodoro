@@ -1,4 +1,4 @@
-# Portfolio
+# PomoTimer
 
 >  In this project, I created a pomoTimer.
 
